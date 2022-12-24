@@ -1,11 +1,11 @@
 {
-  "name": "pointing-poker",
+  "name": "pointing-poker-app",
   "version": "1.0.0",
-  "description": "",
+  "description": "App for pointing user stories.",
   "main": "index.js",
   "scripts": {
     "start": "node server/index.js",
-    "build": "cd client && npm install && npm run build-react-app",
+    "build": "cd react-app && npm install && npm run build-react-app",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "engines": {
