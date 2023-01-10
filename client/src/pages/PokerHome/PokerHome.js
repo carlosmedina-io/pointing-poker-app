@@ -5,6 +5,9 @@ import { faTwitterSquare, faGithubSquare } from "@fortawesome/free-brands-svg-ic
 import { v4 as uuidv4 } from "uuid";
 import { socket } from "../../services/socket";
 
+import Header from "@components/header";
+import { Footer } from "../../components/footer/Footer";
+
 export const PokerHome = () => {
     const { sessionId } = useParams();
     
@@ -124,14 +127,7 @@ export const PokerHome = () => {
     return (
         <>
             <section className="container">
-                <header className="header">
-                    <section className="neon-title">
-                        <div className="text">
-                            <h1>Pointing Poker App</h1>
-                            <h1>Pointing Poker App</h1>
-                        </div>
-                    </section>
-                </header>
+                <Header />
                 <hr className="rounded"></hr>
                 {!userJoined &&
                 <section className="join-to-poker">
@@ -196,10 +192,7 @@ export const PokerHome = () => {
                     <div className="card" onClick={handleVote} data="8"></div>
                 </section>
                 <hr className="rounded"></hr>
-                <footer className="footer">
-                    <FontAwesomeIcon icon={faTwitterSquare} className="faicon" />
-                    <FontAwesomeIcon icon={faGithubSquare} className="faicon" />
-                </footer>
+                <Footer />
             </section>
         </>
       );

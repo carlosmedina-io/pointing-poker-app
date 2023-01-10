@@ -1,0 +1,27 @@
+.footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.faicon {
+    font-size: 4em;
+    background-color: #18191f;
+    color: #fff;
+    border-radius: 30px;
+    padding: 15px 20px;
+    margin: 0 40px;
+    animation: animateicons 2s linear infinite;
+    -webkit-animation: animateicons 3s linear infinite;
+    text-shadow: 0 0 50px #00ff22, 0 0 100px #00ff22, 0 0 150px #00ff22, 0 0 200px #00ff22;
+}
+
+@keyframes animateicons {
+    from {
+        filter: hue-rotate(0deg);
+    }
+    to {
+        filter: hue-rotate(360deg);
+    }
+}

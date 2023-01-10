@@ -15,7 +15,10 @@ module.exports = {
     resolve: {
         modules: [path.join(__dirname, 'src'), 'node_modules'],
         alias: {
-          react: path.join(__dirname, 'node_modules', 'react'),
+            react: path.join(__dirname, 'node_modules', 'react'),
+            '@': path.resolve(__dirname, 'src'),
+            '@assets': path.resolve(__dirname, 'src/assets'),
+            '@components': path.resolve(__dirname, 'src/components'),
         },
     },
     /*

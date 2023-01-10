@@ -9,7 +9,7 @@ import {
 import {
     CreateSession,
     PokerHome,
-} from './routes';
+} from './pages';
 
 const App = () => {
 
