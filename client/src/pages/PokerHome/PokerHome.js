@@ -1,12 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTwitterSquare, faGithubSquare } from "@fortawesome/free-brands-svg-icons";
 import { v4 as uuidv4 } from "uuid";
-import { socket } from "../../services/socket";
-
+import { socket } from "@services/socket";
 import Header from "@components/header";
-import { Footer } from "../../components/footer/Footer";
+import Footer from "@components/footer";
 
 export const PokerHome = () => {
     const { sessionId } = useParams();
@@ -102,7 +99,20 @@ export const PokerHome = () => {
                 setShowVotes(false);
                 return;
             }
-            const winNumber = Math.floor(sumeOfVotes / userLength);
+            const grouped = data.reduce((group, element) => {
+                const { vote } = element;
+                group[0] = group[0] ?? [];
+                group[0].push(parseInt(vote));
+                return group;
+            }, {});
+            const result = grouped[0].sort((a, b) => {
+                return b - a;
+            });
+            
+            let winNumber = result[Math.floor(result.length / 2)];
+            if (result.length % 2 === 0) {
+                winNumber = result[Math.floor((result.length / 2) - 1)]
+            }
             setWinNumber(`WIN: ${winNumber}`);
             setShowVotes(true);
 
@@ -143,9 +153,13 @@ export const PokerHome = () => {
                     </div>
                     <div className="neon-button">
                         <button
-                            className="btn btn-neon"
+                            className="btn btn-neon btn-fast"
                             style={{"width":"100%"}}
                             onClick={handleJoinToSession}>
+                                <span></span>
+                                <span></span>           
+                                <span></span>
+                                <span></span>
                             Join
                         </button>
                     </div>
@@ -178,8 +192,24 @@ export const PokerHome = () => {
                     })}
                 </section>
                 <section className="neon-button neon-button-container show-clear-buttons">
-                    <button className="btn btn-neon btn-fast" onClick={handleShowVotes}>SHOW VOTES</button>
-                    <button className="btn btn-neon btn-fast" onClick={handleClearVotes}>CLEAR VOTES</button>
+                    <button
+                        className="btn btn-neon btn-fast"
+                        onClick={handleShowVotes}>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        SHOW VOTES
+                    </button>
+                    <button
+                        className="btn btn-neon btn-fast"
+                        onClick={handleClearVotes}>
+                        <span></span>
+                        <span></span>           
+                        <span></span>
+                        <span></span>
+                        CLEAR VOTES
+                    </button>
                 </section>
                 <section className="poker-cards-container">
                     <div className={!showVotes ? "card" : "show-win"} onClick={handleVote} data="none">
@@ -192,7 +222,6 @@ export const PokerHome = () => {
                     <div className="card" onClick={handleVote} data="8"></div>
                 </section>
                 <hr className="rounded"></hr>
-                <Footer />
             </section>
         </>
       );

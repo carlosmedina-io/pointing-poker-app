@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { useHistory } from "react-router-dom";
-import { socket } from "../../services/socket";
-
+import { socket } from "@services/socket";
 import Header from "@components/header";
 import Footer from "@components/footer";
 
@@ -42,7 +41,6 @@ export const CreateSession = () => {
                     </button>
                 </section>
             </section>
-            <Footer />
         </main>
     );
 };

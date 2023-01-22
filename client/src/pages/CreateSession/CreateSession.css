@@ -30,6 +30,8 @@ ul, li {
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 2fr 1fr;
     height: 100vh;
+    max-width: 700px;
+    margin: auto;
 }
 
 hr.rounded {
@@ -241,7 +243,7 @@ NEON BOTON
     transition: all 0.25s;
     cursor: pointer;
     box-sizing: border-box;
-    border: 1px solid var(--btn-default-color)
+    border: none;
 }
 .neon-button .btn.btn-neon {
     color: var(--btn-default-color);

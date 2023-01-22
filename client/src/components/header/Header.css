@@ -1,4 +1,9 @@
-.header {
+iframe {
+    overflow: hidden;
+    border: 0;
+}
+
+#header #title {
     display: flex;
     justify-content: center;
     justify-items: center;
@@ -6,7 +11,7 @@
     box-sizing: border-box;
 }
 
-.header h1 {
+#header #title h1 {
     font-size: 5vw;
     color: transparent;
     background: rgb(63,94,251);
@@ -15,14 +20,29 @@
     -webkit-background-clip: text;
 }
 
+.social-icons {
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.social-icons a {
+  text-decoration: none;
+  all: unset;
+  color: white;
+}
+
 @media (max-width: 600px) {
-    .header h1 {
+    #header #title h1 {
         font-size: 9vw;
     }
 }
 
 @media (min-width: 1500px) {
-    .header h1 {
+    #header #title h1 {
         font-size: 70px;
     }
 }
